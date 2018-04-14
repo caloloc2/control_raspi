@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Control Raspi</title>
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="icon" href="favicon.ico">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+	
+	<header>
+		<h1>Control Raspi</h1>
+		<a href="#">Salir</a>
+	</header>
+
+	<ul class="leds">
+		<p>Control Leds</p>
+		<li id="led1">&nbsp;</li>
+		<li id="led2">&nbsp;</li>
+		<li id="led3">&nbsp;</li>
+		<li id="led4">&nbsp;</li>
+		<input type="hidden" id="val_led1" value="0">
+		<input type="hidden" id="val_led2" value="0">
+		<input type="hidden" id="val_led3" value="0">
+		<input type="hidden" id="val_led4" value="0">
+	</ul>
+
+
+	<form class="form-inline" id="texto">	  
+	  <input type="text" class="form-control mb-2 mr-sm-2" id="texto_envio" placeholder="Texto a enviar" required="true">
+	  <button type="submit" class="btn btn-primary mb-2">Enviar</button>
+	  <span class="mensaje">&nbsp;</span>
+	</form>
+
+	<form class="form-inline" id="imagen" accept-charset="multipart/form-data" method="post">	  
+	  <input type="file" class="form-control mb-2 mr-sm-2" id="imagen_envio" name="imagen_envio" placeholder="Escoger imagen" accept="image/x-png,image/gif,image/jpeg" required="true">
+	  <button type="submit" class="btn btn-primary mb-2">Subir</button>
+	  <span class="mensaje">&nbsp;</span>
+	</form>	
+
+	<ul id="reproductor">
+		<li class="icon-play" id="audio_play"></li>
+		<li class="icon-stop activo" id="audio_stop"></li>
+		<span class="mensaje">Audio Detenido</span>
+	</ul>
+	
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+	<script>
+		$(document).ready(function(){
+			Obtener_Leds();
+		})
+	</script>
+</body>
+</html>
