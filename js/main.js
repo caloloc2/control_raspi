@@ -1,3 +1,33 @@
+function checkOS() {
+	if(navigator.userAgent.indexOf('IRIX') != -1)
+	{ var OpSys = "Irix"; }
+	else if((navigator.userAgent.indexOf('Win') != -1) &&
+	(navigator.userAgent.indexOf('4.90') != -1))
+	{ var OpSys = "Windows Millennium"; }
+	else if((navigator.userAgent.indexOf('Win') != -1) &&
+	(navigator.userAgent.indexOf('98') != -1))
+	{ var OpSys = "Windows 98"; }
+	else if((navigator.userAgent.indexOf('Win') != -1) &&
+	(navigator.userAgent.indexOf('95') != -1))
+	{ var OpSys = "Windows 95"; }
+	else if(navigator.appVersion.indexOf("16") !=-1)
+	{ var OpSys = "Windows 3.1"; }
+	else if (navigator.appVersion.indexOf("NT") !=-1)
+	{ var OpSys= "Windows NT"; }
+	else if(navigator.appVersion.indexOf("SunOS") !=-1)
+	{ var OpSys = "SunOS"; }
+	else if(navigator.appVersion.indexOf("Linux") !=-1)
+	{ var OpSys = "Linux"; }
+	else if(navigator.userAgent.indexOf('Mac') != -1)
+	{ var OpSys = "Macintosh"; }
+	else if(navigator.appName=="WebTV Internet Terminal")
+	{ var OpSys="WebTV"; }
+	else if(navigator.appVersion.indexOf("HP") !=-1)
+	{ var OpSys="HP-UX"; }
+	else { var OpSys = "other"; }
+	return OpSys;
+}
+
 function Login(){
 	var usuario = document.getElementById('usuario').value;
 	var pass = document.getElementById('pass').value;
