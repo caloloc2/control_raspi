@@ -1,7 +1,6 @@
 <?php 
 
-function Imagen($imagen, $max_ancho=500, $max_alto=500){
-	print_r($imagen);
+function Imagen($imagen, $max_ancho=500, $max_alto=500){	
 	$foto='';
 	// Mime types permitidos
 	$mimetypes = array("image/jpeg", "image/pjpeg", "image/gif", "image/png");
@@ -12,48 +11,21 @@ function Imagen($imagen, $max_ancho=500, $max_alto=500){
 	$size = $imagen['imagen_envio']["size"];
 	
 	if(in_array($type, $mimetypes)){
-		$rtOriginal=$tmp_name;
-		switch ($type) {
-			case 'image/jpeg':			
-				$original = @imagecreatefromjpeg($rtOriginal);
-				break;
-			case 'image/pjpeg':
-				$original = @imagecreatefromjpeg($rtOriginal);					
-				break;
-			case 'image/gif':
-				$original = @imagecreatefromgif($rtOriginal);
-				break;
-			case 'image/png':
-				$original = @imagecreatefrompng($rtOriginal);
-				break;
-		}	
+		$rtOriginal=$tmp_name;		
+		$original = @imagecreatefromjpeg($rtOriginal);
 					
-		list($ancho,$alto)=getimagesize($rtOriginal);
-		$src_y = ($alto / 2) - ($max_alto / 2);
+		list($ancho,$alto)=getimagesize($rtOriginal);		
 
 		$lienzo=imagecreatetruecolor($max_ancho, $max_alto); 
-		$ooooo = imagecopyresampled($lienzo, $original, 0, 0, 0, $src_y, $max_ancho, $max_alto, $ancho, $max_alto);
+		$ooooo = imagecopyresampled($lienzo, $original, 0, 0, 0, 0, $max_ancho, $max_alto, $ancho, $alto);
 		imagedestroy($original);
 		
-		switch ($type) {
-			case 'image/jpeg':
-				imagejpeg($lienzo,"tmp/".$name, 75);
-				break;
-			case 'image/pjpeg':
-				imagejpeg($lienzo,"tmp/".$name, 75);				
-				break;
-			case 'image/gif':
-				imagegif($lienzo,"tmp/".$name);
-				break;
-			case 'image/png':
-				imagepng($lienzo,"tmp/".$name, 9);
-				break;
-		}
+		imagejpeg($lienzo,"tmp/foto.jpg", 75);
+		
+		//$foto = file_get_contents("tmp/foto");
 
-		$foto = file_get_contents("tmp/".$name);
-
-		@unlink($tmp_name);
-		@unlink("tmp/".$name);
+		//@unlink($tmp_name);
+		//@unlink("tmp/".$name);
 	}
-	return $foto;
+	//return $foto;
 }

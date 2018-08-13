@@ -19,10 +19,9 @@ try{
 		$valor = abs($valor-1);
 
 		$actualiza = Meta::Actualizar_Campo('control', $led, $valor, 'id_control', 1);
-	}elseif (isset($_FILES['imagen_envio']['name'])) {
-		print_r(Imagen($_FILES, 500, 500));
-		//$actualiza = Meta::Actualizar_Campo('control', 'mime', $_FILES['imagen_envio']['type'], 'id_control', 1);
-		//$actualiza = Meta::Actualizar_Campo('control', 'imagen', Imagen($_FILES), 'id_control', 1);
+	}elseif (isset($_FILES['imagen_envio']['name'])) {		
+		Imagen($_FILES, 500, 500);
+		$actualiza = Meta::Actualizar_Campo('control', 'imagen', $_FILES['imagen_envio']['name'], 'id_control', 1);
 	}
 
 	$respuesta['estado'] = true;

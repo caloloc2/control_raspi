@@ -10,21 +10,31 @@
 <body>
 	
 	<header>
+		<figure><img src="img/logo.jpg" alt=""></figure>
 		<h1>Control Raspi</h1>
-		<a href="#">Salir</a>
+		<a href="#" onclick="Salir(); return false;">Salir</a>
 	</header>
 
 	<ul class="leds">
-		<p>Control Leds</p>
+		<p>Secuencia</p>
 		<li id="led1">&nbsp;</li>
 		<li id="led2">&nbsp;</li>
 		<li id="led3">&nbsp;</li>
-		<li id="led4">&nbsp;</li>
+		<li id="led4">&nbsp;</li>		
 		<input type="hidden" id="val_led1" value="0">
 		<input type="hidden" id="val_led2" value="0">
 		<input type="hidden" id="val_led3" value="0">
 		<input type="hidden" id="val_led4" value="0">
 	</ul>
+
+	<form class="form-inline" id="secuencias">	  
+		<select name="" id="" class="form-control mb-2 mr-sm-2" required="true">
+			<option value="0" selected="true">&nbsp;</option>
+			<option value="1">Secuencia 1</option>
+			<option value="2">Secuencia 2</option>
+			<option value="3">Secuencia 3</option>
+		</select>		
+	</form>
 
 
 	<form class="form-inline" id="texto">	  
@@ -52,9 +62,9 @@
 		$(document).ready(function(){
 			var OpSys = checkOS();
 			if (OpSys=="Linux"){
-				//window.location.href = 'admin/index.html';
+				window.location.href = 'admin/index.html';
 			}else{
-				Obtener_Leds();
+				Verifica_Inicio();
 			}
 			
 		})

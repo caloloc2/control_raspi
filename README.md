@@ -3,7 +3,7 @@ Control Web de raspberry pi
 ----
 Desde internet, prender unos 4 pines(leds) con un raspberry, 
 en el raspberry voy a poner una pantalla en esa pantalla debe mostrarse una imagen, 
-debe reproducir un sonido, y tambien mostrarse un texto..
+debe reproducir un sonido, y tambien mostrarse un texto.
 
 Desde la web debe permitir reproducir una pista de audio, 
 cargar una imagen y escribir un texto que va a aparecer en la pantalla del raspberry, 

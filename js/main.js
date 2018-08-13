@@ -28,6 +28,11 @@ function checkOS() {
 	return OpSys;
 }
 
+$('#inicio').submit(function(){
+	Login();
+	return false;
+})
+
 function Login(){
 	var usuario = document.getElementById('usuario').value;
 	var pass = document.getElementById('pass').value;
@@ -50,11 +55,32 @@ function Crear_Inicio(){
 		dataType: 'json',
 		async: false,
 		success: function(datos) {
+			console.log(datos);
 			if (!datos['estado']){
 				alert("Error al crear el inicio de sesion.");
 				console.log(datos['error']);
 			}else{
 				window.location.href = 'index.html';
+			}
+		},
+		error:function(e){
+			console.log(e.responseText);
+		}
+	});
+}
+
+function Salir(){
+	$.ajax({
+		url: 'php/salir.php',
+		dataType: 'json',
+		async: false,
+		success: function(datos) {
+			console.log(datos);
+			if (!datos['estado']){
+				alert("Error al salir del sistema.");
+				console.log(datos['error']);
+			}else{
+				window.location.href = 'login.html';
 			}
 		},
 		error:function(e){
@@ -69,10 +95,11 @@ function Verifica_Inicio(){
 		dataType: 'json',
 		async: false,
 		success: function(datos) {
+			//console.log(datos);
 			if (!datos['estado']){
 				window.location.href = 'login.html';
 			}else{
-				$('#loading').fadeOut(550);
+				Obtener_Leds();
 			}
 		},
 		error:function(e){
@@ -138,6 +165,7 @@ $('#texto').submit(function(){
 		type: "POST",
 		async: false,
 		success: function(datos) {
+			console.log(datos);
 			if (datos['estado']){
 				document.getElementById('texto_envio').value = "";
 				$('#texto .mensaje').html("Texto enviado!");
@@ -193,7 +221,6 @@ function Audio(valor){
 	return false;
 }
 
-
 $('#imagen').submit(function(){
 	var form = $('#imagen');
     var formdata = false;
@@ -209,7 +236,7 @@ $('#imagen').submit(function(){
         contentType : false,
         processData : false,
         type : 'POST',
-        dataType: 'html',
+        dataType: 'json',
         success     : function(data, textStatus, jqXHR){            
             console.log(data);           
         },

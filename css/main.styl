@@ -18,7 +18,7 @@ body
 		border-bottom 1px solid rgba(0,0,0,0.1)
 		padding  1em 3em 0.2em 3em
 		
-		h1, a
+		h1, a, figure
 			display inline-block
 			vertical-align middle
 			padding 0
@@ -33,6 +33,46 @@ body
 		
 		a:hover
 			color #777
+		
+		figure
+			width 120px 
+			margin 0 2em 0.6em 0
+			
+			img 
+				width 100%
+	
+	#login
+		text-align center
+		border 0
+		
+		h1, a, figure
+			display block
+		
+		figure
+			margin 0 auto
+			width 250px
+		
+		h1 
+			font-size 25px
+			padding 1em 0 0 0
+	
+	#inicio
+		width 300px
+		margin 4em auto 0 auto
+		padding 1em 2em
+		
+		input
+			display block 
+			width 100%
+			padding 0.5em 0.7em
+			border-radius 0.3em
+			border 1px solid rgba(0,0,0,0.3)
+			margin 0 0 0.5em 0
+			background white
+		
+		input[type='submit']
+			color #0000AA
+			text-transform uppercase
 	
 	.leds
 		text-align center
@@ -40,7 +80,7 @@ body
 		
 		p 
 			font-size 30px
-			color #666
+			color #666		
 			
 		li 
 			display inline-block
@@ -59,13 +99,32 @@ body
 		.encendido
 			background #EA1C3E
 	
-	#texto, #imagen
-		width 255px 
+	/*#secuencias
+		text-align center		
+		
+		select
+			width 300px
+			margin 0 auto
+			*/
+	#texto, #imagen, #secuencias
+		width 300px 
 		margin 2em auto 0 auto
 		text-align center
+		
+		p
+			font-size 30px
+			color orange
 	
 	#imagen
 		width 375px
+	
+	#ver_imagen
+		width 250px
+		height 250px		
+		margin 0 auto
+		
+		img 
+			width 100%			
 	
 	#reproductor
 		margin 2em auto 
