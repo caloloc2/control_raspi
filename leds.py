@@ -13,25 +13,32 @@ def Lectura():
 	cur = db.cursor()
 	cur.execute("SELECT * FROM control LIMIT 1")
 	for row in cur.fetchall() :
-		print row
+		# led 1
+		if (row[1]==1):
+			GPIO.output(26, True)
+		else:
+			GPIO.output(26, False)
+		# led 1
+		if (row[2]==1):
+			GPIO.output(19, True)
+		else:
+			GPIO.output(19, False)
+		# led 1
+		if (row[3]==1):
+			GPIO.output(13, True)
+		else:
+			GPIO.output(13, False)
+		# led 1
+		if (row[4]==1):
+			GPIO.output(9, True)
+		else:
+			GPIO.output(9, False)
 	cur.close()
 	db.close ()
 
 try:
 	while True:
 		Lectura()
-		GPIO.output(26, True)
-		time.sleep(1)
-		GPIO.output(19, True)
-		time.sleep(1)
-		GPIO.output(13, True)
-		time.sleep(1)
-		GPIO.output(6, True)
-		time.sleep(1)
-		GPIO.output(26, False)
-		GPIO.output(19, False)
-		GPIO.output(13, False)
-		GPIO.output(6, False)
 		time.sleep(1)
 except KeyboardInterrupt:
 	print "Script finalizado."
