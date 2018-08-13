@@ -8,7 +8,7 @@ function Leer(){
 
 function Leds(){
 	$.ajax({
-		url: '../php/obtener_datos.php',
+		url: 'php/obtener_datos.php',
 		dataType: 'json',		
 		async: false,
 		success: function(datos) {
