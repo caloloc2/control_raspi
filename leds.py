@@ -7,7 +7,7 @@ GPIO.setup(13, GPIO.OUT) ## GPIO 27 como salida
 GPIO.setup(6, GPIO.OUT) ## GPIO 27 como salida
 
 try:
-	while(True)
+	while True:
 		GPIO.output(26, True)
 		time.sleep(1)
 		GPIO.output(19, True)
