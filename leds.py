@@ -13,30 +13,34 @@ def lectura():
 	cur = db.cursor()
 	cur.execute("SELECT * FROM control LIMIT 1")
 	for row in cur.fetchall() :
-		# obtiene el estado de los pines
-		estados = str(row[8])
-		valor = estados.split('-')
+		estados = (str(row[8])).split('*')
 
-		# led 1
-		if (valor[0]==1):
-			GPIO.output(26, True)
-		else:
-			GPIO.output(26, False)
-		# led 1
-		if (valor[1]==1):
-			GPIO.output(19, True)
-		else:
-			GPIO.output(19, False)
-		# led 1
-		if (valor[2]==1):
-			GPIO.output(13, True)
-		else:
-			GPIO.output(13, False)
-		# led 1
-		if (valor[3]==1):
-			GPIO.output(6, True)
-		else:
-			GPIO.output(6, False)
+		for linea in estados:
+			# obtiene el estado de los pines
+			valor = linea.split('-')
+
+			# led 1
+			if (valor[0]==1):
+				GPIO.output(26, True)
+			else:
+				GPIO.output(26, False)
+			# led 1
+			if (valor[1]==1):
+				GPIO.output(19, True)
+			else:
+				GPIO.output(19, False)
+			# led 1
+			if (valor[2]==1):
+				GPIO.output(13, True)
+			else:
+				GPIO.output(13, False)
+			# led 1
+			if (valor[3]==1):
+				GPIO.output(6, True)
+			else:
+				GPIO.output(6, False)
+
+			time.sleep(1)
 	cur.close()
 	db.close ()
 

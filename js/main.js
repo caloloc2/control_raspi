@@ -196,7 +196,8 @@ function Audio(valor){
 		url: 'php/actualiza.php',
 		dataType: 'json',
 		data: {
-			audio : valor
+			audio : valor,
+			secuencia: document.getElementById('seleccion_secuencia').value
 		},
 		type: "POST",
 		async: false,

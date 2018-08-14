@@ -1,0 +1,18 @@
+sudo su -
+sudo apt-get update
+sudo apt-get upgrade
+
+wget 'http://downloads.sourceforge.net/project/raspberry-gpio-python/RPi.GPIO-0.5.4.tar.gz'
+tar zxvf RPi.GPIO-0.5.4.tar.gz
+cd RPi.GPIO-0.5.4/
+sudo apt-get install python-dev
+sudo python setup.py install
+sudo apt-get install python-mysqldb
+sudo apt-get install git
+
+sudo rpi-update
+
+git clone https://github.com/caloloc2/control_raspi
+sudo chmod -R 777 control_raspi
+cd control_raspi
+sudo python leds.py
