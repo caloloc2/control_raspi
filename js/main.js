@@ -202,6 +202,7 @@ function Audio(valor){
 		type: "POST",
 		async: false,
 		success: function(datos) {
+			console.log(datos);
 			if (datos['estado']){
 				if (valor==0){
 					$('#reproductor .mensaje').html("Audio detenido.");
