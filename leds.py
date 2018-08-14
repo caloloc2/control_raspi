@@ -19,7 +19,7 @@ def lectura():
 		if (audio_activo==1):
 			for linea in estados:
 				# obtiene el estado de los pines
-				row = linea.split('-')
+				valor = linea.split('-')
 
 				# led 1
 				if (valor[0]=='1'):
