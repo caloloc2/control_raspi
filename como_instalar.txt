@@ -16,3 +16,16 @@ git clone https://github.com/caloloc2/control_raspi
 sudo chmod -R 777 control_raspi
 cd control_raspi
 sudo python leds.py
+
+
+
+///////// PARA INICIAR AUTOMATICAMENTE EL ARCHIVO DE PYTHON
+
+- en consola ejecutamos
+sudo nano /etc/rc.local
+- se abre el archivo para editar y justo antes de la ultima linea que dice exit(0), aumentamos
+sudo python direccion/control_raspi/leds.py (donde dice direccion se pone la direccion o carpeta completa de donde esta la carpeta control_raspi)
+- CTRL+O, ENTER, CTRL+X
+
+
+ 
