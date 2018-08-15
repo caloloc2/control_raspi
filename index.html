@@ -37,16 +37,24 @@
 	</form>
 
 
-	<form class="form-inline" id="texto">	  
+	<form class="form-inline" id="texto">	  	  
 	  <input type="text" class="form-control mb-2 mr-sm-2" id="texto_envio" placeholder="Texto a enviar" required="true">
 	  <button type="submit" class="btn btn-primary mb-2">Enviar</button>
 	  <span class="mensaje">&nbsp;</span>
 	</form>
 
 	<form class="form-inline" id="imagen" accept-charset="multipart/form-data" method="post">	  
+		<label for="">Archivo de Imagen</label>
 	  <input type="file" class="form-control mb-2 mr-sm-2" id="imagen_envio" name="imagen_envio" placeholder="Escoger imagen" accept="image/x-png,image/gif,image/jpeg" required="true">
 	  <button type="submit" class="btn btn-primary mb-2">Subir</button>
-	  <span class="mensaje">&nbsp;</span>
+	  <span class="mensaje_imagen">&nbsp;</span>
+	</form>	
+
+	<form class="form-inline" id="audio" accept-charset="multipart/form-data" method="post">	  
+		<label for="">Archivo de Audio</label>
+	  <input type="file" class="form-control mb-2 mr-sm-2" id="audio_envio" name="audio_envio" placeholder="Escoger Audio" accept="audio/mp3" required="true">
+	  <button type="submit" class="btn btn-primary mb-2">Subir</button>
+	  <span class="mensaje_audio">&nbsp;</span>
 	</form>	
 
 	<ul id="reproductor">

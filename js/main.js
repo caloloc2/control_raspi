@@ -173,6 +173,9 @@ $('#texto').submit(function(){
 				console.log(datos['error']);
 				$('#texto .mensaje').html("Texto no enviado!");
 			}
+			setTimeout(function(){				
+				$('#texto .mensaje').html("");
+			}, 2500)
 		},
 		error:function(e){
 			console.log(e.responseText);
@@ -240,7 +243,16 @@ $('#imagen').submit(function(){
         type : 'POST',
         dataType: 'json',
         success     : function(data, textStatus, jqXHR){            
-            console.log(data);           
+            console.log(data); 
+            if (data['estado']){				
+				$('#imagen .mensaje_imagen').html("Imagen guardada!");
+			}else{
+				console.log(datos['error']);
+				$('#imagen .mensaje_imagen').html("Imagen no guardada!");
+			}
+			setTimeout(function(){				
+				$('#imagen .mensaje_imagen').html("");
+			}, 2500)
         },
         error: function(e){
         	console.log(e.responseText);        	
@@ -249,4 +261,37 @@ $('#imagen').submit(function(){
     return false;
 })
 
-	
+$('#audio').submit(function(){
+	var form = $('#audio');
+    var formdata = false;
+    if (window.FormData){
+        formdata = new FormData(form[0]);
+    }
+
+    var formAction = form.attr('action');
+    $.ajax({
+        url : 'php/audio.php',
+        data : formdata ? formdata : form.serialize(),
+        cache : false,
+        contentType : false,
+        processData : false,
+        type : 'POST',
+        dataType: 'json',
+        success     : function(data, textStatus, jqXHR){            
+            console.log(data); 
+            if (data['estado']){				
+				$('#audio .mensaje_audio').html("Audio guardado!");
+			}else{
+				console.log(datos['error']);
+				$('#audio .mensaje_audio').html("Audio no guardado!");
+			}
+			setTimeout(function(){				
+				$('#audio .mensaje_audio').html("");
+			}, 2500)
+        },
+        error: function(e){
+        	console.log(e.responseText);        	
+        }
+    });
+    return false;
+})	
