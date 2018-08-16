@@ -276,8 +276,8 @@ $('#audio').submit(function(){
         contentType : false,
         processData : false,
         type : 'POST',
-        dataType: 'json',
-        success     : function(data, textStatus, jqXHR){            
+        dataType: 'html',
+        success : function(data, textStatus, jqXHR){            
             console.log(data); 
             if (data['estado']){				
 				$('#audio .mensaje_audio').html("Audio guardado!");
