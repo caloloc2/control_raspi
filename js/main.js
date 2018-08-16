@@ -276,7 +276,7 @@ $('#audio').submit(function(){
         contentType : false,
         processData : false,
         type : 'POST',
-        dataType: 'html',
+        dataType: 'json',
         success : function(data, textStatus, jqXHR){            
             console.log(data); 
             if (data['estado']){				
