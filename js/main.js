@@ -117,10 +117,27 @@ function Obtener_Leds(){
 			if (datos['estado']){
 				for (x=1; x<=4; x++){
 					if (datos['datos']['led'+x]==0){
-						$('#led'+x).removeClass('encendido');
+						if (x==1){
+							$('#led'+x).removeClass('encendido');
+						}else if (x==2) {
+							$('#led'+x).removeClass('rojo');
+						}else if (x==3) {
+							$('#led'+x).removeClass('verde');
+						}else if (x==4) {
+							$('#led'+x).removeClass('azul');
+						}
+						//$('#led'+x).removeClass('encendido');
 						document.getElementById('val_led'+x).value = 0;
-					}else{
-						$('#led'+x).addClass('encendido');
+					}else{						
+						if (x==1){
+							$('#led'+x).addClass('encendido');
+						}else if (x==2) {
+							$('#led'+x).addClass('rojo');
+						}else if (x==3) {
+							$('#led'+x).addClass('verde');
+						}else if (x==4) {
+							$('#led'+x).addClass('azul');
+						}
 						document.getElementById('val_led'+x).value = 1;
 					}	
 				}
