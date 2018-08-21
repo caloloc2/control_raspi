@@ -3,18 +3,18 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Control Raspi</title>
-	<link rel="icon" href="http://controlraspi.ddns.net/favicon.ico">
-	<link rel="stylesheet" href="http://controlraspi.ddns.net/css/main.css">
+	<link rel="icon" href="../favicon.ico">
+	<link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
 	
 	<header>
-		<figure><img src="http://controlraspi.ddns.net/img/logo.jpg" alt=""></figure>
+		<figure><img src="../img/logo.jpg" alt=""></figure>
 		<h1>Control Raspi</h1>		
 	</header>
 
 	<ul class="leds">
-		<p>Secuencia</p>
+		<p id="secuencia">Secuencia Manual</p>
 		<li id="led1">&nbsp;</li>
 		<li id="led2">&nbsp;</li>
 		<li id="led3">&nbsp;</li>
@@ -27,7 +27,11 @@
 
 	<figure id="ver_imagen"><img id="fotografia" src="http://controlraspi.ddns.net/php/tmp/foto.jpg" alt=""></figure>
 
-	<audio id="player" src="http://controlraspi.ddns.net/php/tmp/audio.mp3"></audio>
+	<audio id="player" src=""></audio>
+
+	<ul id="reproductor">		
+		<span class="mensaje">Audio Detenido</span>
+	</ul>
 
 	<script src="js/jquery.min.js"></script>
 	<script src="js/main.js"></script>
