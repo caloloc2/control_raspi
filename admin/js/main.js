@@ -1,4 +1,5 @@
 var secuencia;
+var estado_audio = false;
 
 function Leer(){
 	setInterval(function(){
@@ -12,7 +13,7 @@ function Leds(){
 		dataType: 'json',		
 		async: false,
 		success: function(datos) {
-			console.log(datos);
+			//console.log(datos);
 			if (datos['estado']){				
 				// estado de los leds
 				for(x=1; x<5; x++){
@@ -31,14 +32,19 @@ function Leds(){
 				$("#fotografia").attr("src","../php/tmp/foto.jpg");
 
 				// reproduce o detiene audio
-				$("#player").attr("src", datos['datos']['nombre_audio']);
+				
 				var audios = document.getElementById('player');
 				if (datos['datos']['audio']=="1"){
-					audios.play();
-					Secuencia();
+					if (estado_audio==false){
+						$("#player").attr("src", "../php/tmp/"+datos['datos']['nombre_audio']);
+						audios.play();
+						estado_audio = true;
+						Secuencia();
+					}					
 				}else{
 					audios.pause();
 					clearInterval(secuencia);
+					estado_audio = false;
 				}
 			}
 		},

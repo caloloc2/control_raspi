@@ -13,6 +13,9 @@ try{
 		$actualiza = Meta::Actualizar_Campo('control', 'texto', $_POST['texto'], 'id_control', 1);
 	}elseif (isset($_POST['audio'])) {
 		$actualiza = Meta::Actualizar_Campo('control', 'audio', $_POST['audio'], 'id_control', 1);
+		$nombre_audio = Meta::Consulta_Unico("SELECT nombre_audio FROM control LIMIT 1");
+		$respuesta['nombre_audio'] = $nombre_audio['nombre_audio'];
+		
 		if (isset($_POST['secuencia'])){
 			switch ($_POST['secuencia']) {
 				case 0:

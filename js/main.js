@@ -228,7 +228,7 @@ function Audio(valor){
 					$('#reproductor .mensaje').html("Audio detenido.");
 					$('#reproductor li:nth-child(2)').addClass('activo');
 				}else{
-					$('#reproductor .mensaje').html("Reproduciendo audio...");
+					$('#reproductor .mensaje').html("Reproduciendo audio..."+datos['nombre_audio']);
 					$('#reproductor li:nth-child(1)').addClass('activo');
 				}
 			}else{
