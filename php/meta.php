@@ -112,15 +112,15 @@ class Meta
      * @param $edad         nueva descripcion 
      * @return PDOStatement
      */
-    public static function Nuevo_Control($led1, $led2, $led3, $led4, $texto, $imagen, $audio)
+    public static function Nuevo_Control($led1, $led2, $led3, $led4, $texto, $imagen, $audio, $nombre_audio)
     {        
         // Sentencia INSERT
-        $comando = "INSERT INTO control (led1, led2, led3, led4, texto, imagen, audio) VALUES (?,?,?,?,?,?,?)";
+        $comando = "INSERT INTO control (led1, led2, led3, led4, texto, imagen, audio, nombre_audio) VALUES (?,?,?,?,?,?,?,?)";
 
         // Preparar la sentencia
         $sentencia = Database::getInstance()->getDb()->prepare($comando);
 
-        return $sentencia->execute(array($led1, $led2, $led3, $led4, $texto, $imagen, $audio));
+        return $sentencia->execute(array($led1, $led2, $led3, $led4, $texto, $imagen, $audio, $nombre_audio));
 
     }
 
