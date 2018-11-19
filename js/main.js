@@ -126,7 +126,8 @@ function Obtener_Leds(){
 						}else if (x==4) {
 							$('#led'+x).removeClass('azul');
 						}
-						//$('#led'+x).removeClass('encendido');
+						$('#btn_led'+x).removeClass('btn-warning');
+						$('#btn_led'+x).addClass('btn-outline-secondary');
 						document.getElementById('val_led'+x).value = 0;
 					}else{						
 						if (x==1){
@@ -138,6 +139,8 @@ function Obtener_Leds(){
 						}else if (x==4) {
 							$('#led'+x).addClass('azul');
 						}
+						$('#btn_led'+x).addClass('btn-warning');
+						$('#btn_led'+x).removeClass('btn-outline-secondary');
 						document.getElementById('val_led'+x).value = 1;
 					}	
 				}
@@ -152,9 +155,6 @@ function Obtener_Leds(){
 // $('.leds li').click(function(e){
 // 	var led = e.target.id;
 // 	var valor = document.getElementById('val_'+led).value;
-
-// 	console.log(led);
-// 	console.log(valor);
 
 // 	$.ajax({
 // 		url: 'php/actualiza.php',
@@ -196,24 +196,30 @@ function Acciona_Led(led){
 }
 
 var rsec = 0;
-function Reproducir_Secuencia(){
+function Reproducir_Secuencia(numero){
 	rsec = Math.abs((rsec -1)) ;
 	$.ajax({
 		url: 'php/actualiza.php',
 		dataType: 'json',
 		data: {
 			control_secuencia : rsec,
-			secuencia: document.getElementById('seleccion_secuencia').value
+			secuencia: numero
 		},
 		type: "POST",
 		async: false,
 		success: function(datos) {
-			//console.log(datos);
+			console.log(datos);
 			if (datos['estado']){				
 				if (datos['datos']['control_secuencia']=="0"){
-					document.getElementById('rep_sec').value = "Reproducir Secuencia";
+					$('#btn_sec_1').removeClass('btn-warning');
+					$('#btn_sec_1').addClass('btn-outline-secondary');
+					$('#btn_sec_2').removeClass('btn-warning');
+					$('#btn_sec_2').addClass('btn-outline-secondary');
+					$('#btn_sec_3').removeClass('btn-warning');
+					$('#btn_sec_3').addClass('btn-outline-secondary');
 				}else{					
-					document.getElementById('rep_sec').value = "Detener Secuencia";
+					$('#btn_sec_'+datos['datos']['secuencia']).addClass('btn-warning');
+					$('#btn_sec_'+datos['datos']['secuencia']).removeClass('btn-outline-secondary');
 				}
 			}else{
 				console.log(datos['error']);

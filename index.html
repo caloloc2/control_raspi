@@ -17,7 +17,7 @@
 
 	
 	<ul class="leds">
-		<p>Secuencia</p>
+		<p>Control Manual</p>
 		
 		<li id="led1">&nbsp;</li>
 		<li id="led2">&nbsp;</li>
@@ -30,13 +30,21 @@
 	</ul>
 
 	<ul class="botones_secuencia">
-		<li><a href="#" class="btn btn-warning" onclick="Acciona_Led('led1'); return false;">Led 1</a></li>
-		<li><a href="#" class="btn btn-warning" onclick="Acciona_Led('led2'); return false;">Led 2</a></li>
-		<li><a href="#" class="btn btn-warning" onclick="Acciona_Led('led3'); return false;">Led 3</a></li>
-		<li><a href="#" class="btn btn-warning" onclick="Acciona_Led('led4'); return false;">Led 4</a></li>
+		<li><a href="#" id="btn_led1" class="btn btn-lg btn-outline-secondary" onclick="Acciona_Led('led1'); return false;">AUX</a></li>
+		<li><a href="#" id="btn_led2" class="btn btn-lg btn-warning" onclick="Acciona_Led('led2'); return false;">ROJO</a></li>
+		<li><a href="#" id="btn_led3" class="btn btn-lg btn-warning" onclick="Acciona_Led('led3'); return false;">VERDE</a></li>
+		<li><a href="#" id="btn_led4" class="btn btn-lg btn-warning" onclick="Acciona_Led('led4'); return false;">AZUL</a></li>
 	</ul>
 
-	<form class="form-inline" id="secuencias">	  
+
+	<ul class="botones_secuencia">
+		<p>Control Secuencia</p>
+		<li><a href="#" id="btn_sec_1" class="btn btn-lg btn-warning" onclick="Reproducir_Secuencia(1); return false;">SECUENCIA 1</a></li>
+		<li><a href="#" id="btn_sec_2" class="btn btn-lg btn-warning" onclick="Reproducir_Secuencia(2); return false;">SECUENCIA 2</a></li>
+		<li><a href="#" id="btn_sec_3" class="btn btn-lg btn-outline-secondary" onclick="Reproducir_Secuencia(3); return false;">SECUENCIA 3</a></li>
+	</ul>
+
+	<!-- <form class="form-inline" id="secuencias">	  
 		<select name="seleccion_secuencia" id="seleccion_secuencia" class="form-control mb-2 mr-sm-2" required="true">
 			<option value="0" selected="true">&nbsp;</option>
 			<option value="1">Secuencia 1</option>
@@ -44,7 +52,7 @@
 			<option value="3">Secuencia 3</option>
 		</select>
 		<input type="button" onclick="Reproducir_Secuencia(); return false;" id="rep_sec" value="Reproducir Secuencia" class="btn btn-primary">
-	</form>
+	</form> -->
 
 
 	<form class="form-inline" id="texto">	  	  
