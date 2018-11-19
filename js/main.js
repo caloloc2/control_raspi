@@ -149,8 +149,32 @@ function Obtener_Leds(){
 	});	
 }
 
-$('.leds li').click(function(e){
-	var led = e.target.id;
+// $('.leds li').click(function(e){
+// 	var led = e.target.id;
+// 	var valor = document.getElementById('val_'+led).value;
+
+// 	console.log(led);
+// 	console.log(valor);
+
+// 	$.ajax({
+// 		url: 'php/actualiza.php',
+// 		dataType: 'json',
+// 		data: {
+// 			led : led,
+// 			valor: valor
+// 		},
+// 		type: "POST",
+// 		async: false,
+// 		success: function(datos) {
+// 			Obtener_Leds();
+// 		},
+// 		error:function(e){
+// 			console.log(e.responseText);
+// 		}
+// 	});	
+// })
+
+function Acciona_Led(led){
 	var valor = document.getElementById('val_'+led).value;
 
 	$.ajax({
@@ -169,7 +193,39 @@ $('.leds li').click(function(e){
 			console.log(e.responseText);
 		}
 	});	
-})
+}
+
+var rsec = 0;
+function Reproducir_Secuencia(){
+	rsec = Math.abs((rsec -1)) ;
+	$.ajax({
+		url: 'php/actualiza.php',
+		dataType: 'json',
+		data: {
+			audio : rsec,
+			secuencia: document.getElementById('seleccion_secuencia').value
+		},
+		type: "POST",
+		async: false,
+		success: function(datos) {
+			//console.log(datos);
+			if (datos['estado']){				
+				if (datos['datos']['audio']=="0"){
+					document.getElementById('rep_sec').value = "Reproducir Secuencia";
+				}else{					
+					document.getElementById('rep_sec').value = "Detener Secuencia";
+				}
+				console.log('reproduciendo solo secuencia...');
+			}else{
+				console.log(datos['error']);
+			}
+		},
+		error:function(e){
+			console.log(e.responseText);			
+		}
+	});	
+	return false;
+}
 
 $('#texto').submit(function(){
 	var texto = document.getElementById('texto_envio').value;
