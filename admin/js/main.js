@@ -73,6 +73,27 @@ function Leds(){
 					$('#reproductor .mensaje').html("Audio Detenido");
 					$('#secuencia').html('Secuencia Manual');
 				}
+
+
+
+				if (datos['datos']['secuencia']=="1"){
+					if (datos['datos']['mime']!='0-0-0-0'){
+						if (datos['datos']['mime']=='1-1-0-0*1-0-1-0*1-0-0-1*0-1-0-0*0-0-1-0*0-0-0-1'){
+							$('#texto_secuencia').html('Secuencia 1');
+						}else if (datos['datos']['mime']=='1-1-0-0*1-1-1-0*1-0-1-0*1-0-1-1*1-0-0-1*1-1-0-1*0-1-0-0*0-1-1-0*0-0-1-0*0-0-1-1*0-0-0-1*0-1-0-1') {
+							console.log('aqi');
+							$('#texto_secuencia').html('Secuencia 2');
+						}else if (datos['datos']['mime']=='1-1-0-0*1-1-1-1*1-0-0-1*1-1-1-1*1-0-1-0*1-1-1-1*0-1-0-0*0-1-1-1*0-0-0-1*0-1-1-1*0-0-1-0*0-1-1-1') {
+							$('#texto_secuencia').html('Secuencia 3');
+						}							
+					}else{
+						$('#texto_secuencia').html('Secuencia Manual');
+					}
+					Secuencia();
+				}else{
+					clearInterval(secuencia);
+					$('#secuencia').html('Secuencia Manual');
+				}
 			}
 		},
 		error:function(e){

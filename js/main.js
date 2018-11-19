@@ -202,7 +202,7 @@ function Reproducir_Secuencia(){
 		url: 'php/actualiza.php',
 		dataType: 'json',
 		data: {
-			audio : rsec,
+			control_secuencia : rsec,
 			secuencia: document.getElementById('seleccion_secuencia').value
 		},
 		type: "POST",
@@ -210,12 +210,11 @@ function Reproducir_Secuencia(){
 		success: function(datos) {
 			//console.log(datos);
 			if (datos['estado']){				
-				if (datos['datos']['audio']=="0"){
+				if (datos['datos']['control_secuencia']=="0"){
 					document.getElementById('rep_sec').value = "Reproducir Secuencia";
 				}else{					
 					document.getElementById('rep_sec').value = "Detener Secuencia";
 				}
-				console.log('reproduciendo solo secuencia...');
 			}else{
 				console.log(datos['error']);
 			}
@@ -355,7 +354,7 @@ $('#audio').submit(function(){
             if (data['estado']){				
 				$('#audio .mensaje_audio').html("Audio guardado!");
 			}else{
-				console.log(datos['error']);
+				console.log(data['error']);
 				$('#audio .mensaje_audio').html("Audio no guardado!");
 			}
 			setTimeout(function(){				
