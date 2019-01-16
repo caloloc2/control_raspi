@@ -198,6 +198,9 @@ function Acciona_Led(led){
 var rsec = 0;
 function Reproducir_Secuencia(numero){
 	rsec = Math.abs((rsec -1)) ;
+	if (rsec==0){
+		numero = 0;
+	}
 	$.ajax({
 		url: 'php/actualiza.php',
 		dataType: 'json',

@@ -39,10 +39,58 @@
 
 	<ul class="botones_secuencia">
 		<p>Control Secuencia</p>
-		<li><a href="#" id="btn_sec_1" class="btn btn-lg btn-warning" onclick="Reproducir_Secuencia(1); return false;">SECUENCIA 1</a></li>
-		<li><a href="#" id="btn_sec_2" class="btn btn-lg btn-warning" onclick="Reproducir_Secuencia(2); return false;">SECUENCIA 2</a></li>
+		<li><a href="#" id="btn_sec_1" class="btn btn-lg btn-outline-secondary" onclick="Reproducir_Secuencia(1); return false;">SECUENCIA 1</a></li>
+		<li><a href="#" id="btn_sec_2" class="btn btn-lg btn-outline-secondary" onclick="Reproducir_Secuencia(2); return false;">SECUENCIA 2</a></li>
 		<li><a href="#" id="btn_sec_3" class="btn btn-lg btn-outline-secondary" onclick="Reproducir_Secuencia(3); return false;">SECUENCIA 3</a></li>
 	</ul>
+
+	<div class="division">
+		<div class="columna">
+				<form class="form-inline" id="texto">	  	  
+					<input type="text" class="form-control mb-2 mr-sm-2" id="texto_envio" placeholder="Texto a enviar" required="true">
+					<button type="submit" class="btn btn-primary mb-2">Enviar</button>
+					<span class="mensaje">&nbsp;</span>
+				</form>
+			
+				<form class="form-inline" id="imagen" accept-charset="multipart/form-data" method="post">	  
+					<label for="">Archivo de Imagen</label>
+					<input type="file" class="form-control mb-2 mr-sm-2" id="imagen_envio" name="imagen_envio" placeholder="Escoger imagen" accept="image/jpeg" required="true">
+					<button type="submit" class="btn btn-primary mb-2">Subir</button>
+					<span class="mensaje_imagen">&nbsp;</span>
+				</form>	
+			
+				<form class="form-inline" id="audio" accept-charset="multipart/form-data" method="post">	  
+					<label for="">Archivo de Audio</label>
+					<input type="file" class="form-control mb-2 mr-sm-2" id="audio_envio" name="audio_envio" placeholder="Escoger Audio" accept="audio/mp3" required="true">
+					<button type="submit" class="btn btn-primary mb-2">Subir</button>
+					<span class="mensaje_audio">&nbsp;</span>
+				</form>	
+			
+				<ul id="reproductor">
+					<li class="icon-play" id="audio_play"></li>
+					<li class="icon-stop activo" id="audio_stop"></li>
+					<span class="mensaje">Audio Detenido</span>
+				</ul>
+		</div>
+
+		<div class="columna">
+			<div class="botones_secuencia">
+				<p>Nivel de Flujo</p>
+				<div class="cuadro">
+					<input type="text" class="form-control mb-2 mr-sm-2" id="nivel_flujo" readonly value="35 L/m">
+				</div>
+			</div>
+		
+			<div class="botones_secuencia">
+				<p>Flujo de Agua</p>
+				<div class="cuadro">
+					<input type="text" class="form-control mb-2 mr-sm-2" id="nivel_agua" readonly value="NIVEL BAJO">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
 
 	<!-- <form class="form-inline" id="secuencias">	  
 		<select name="seleccion_secuencia" id="seleccion_secuencia" class="form-control mb-2 mr-sm-2" required="true">
@@ -55,31 +103,7 @@
 	</form> -->
 
 
-	<form class="form-inline" id="texto">	  	  
-	  <input type="text" class="form-control mb-2 mr-sm-2" id="texto_envio" placeholder="Texto a enviar" required="true">
-	  <button type="submit" class="btn btn-primary mb-2">Enviar</button>
-	  <span class="mensaje">&nbsp;</span>
-	</form>
-
-	<form class="form-inline" id="imagen" accept-charset="multipart/form-data" method="post">	  
-		<label for="">Archivo de Imagen</label>
-	  <input type="file" class="form-control mb-2 mr-sm-2" id="imagen_envio" name="imagen_envio" placeholder="Escoger imagen" accept="image/jpeg" required="true">
-	  <button type="submit" class="btn btn-primary mb-2">Subir</button>
-	  <span class="mensaje_imagen">&nbsp;</span>
-	</form>	
-
-	<form class="form-inline" id="audio" accept-charset="multipart/form-data" method="post">	  
-		<label for="">Archivo de Audio</label>
-	  <input type="file" class="form-control mb-2 mr-sm-2" id="audio_envio" name="audio_envio" placeholder="Escoger Audio" accept="audio/mp3" required="true">
-	  <button type="submit" class="btn btn-primary mb-2">Subir</button>
-	  <span class="mensaje_audio">&nbsp;</span>
-	</form>	
-
-	<ul id="reproductor">
-		<li class="icon-play" id="audio_play"></li>
-		<li class="icon-stop activo" id="audio_stop"></li>
-		<span class="mensaje">Audio Detenido</span>
-	</ul>
+	
 	
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

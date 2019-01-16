@@ -62,6 +62,20 @@ function Leds(){
 						}else{
 							$('#secuencia').html('Secuencia Manual');
 						}
+
+						// if (datos['datos']['secuencia']!='0'){
+						// 	if (datos['datos']['secuencia']=='1'){
+						// 		$('#secuencia').html('Secuencia 1');
+						// 	}else if (datos['datos']['secuencia']=='2') {
+						// 		$('#secuencia').html('Secuencia 2');
+						// 	}else if (datos['datos']['secuencia']=='3') {
+						// 		$('#secuencia').html('Secuencia 3');
+						// 	}else{
+						// 		$('#secuencia').html('Secuencia Manual');
+						// 	}							
+						// }else{
+						// 	$('#secuencia').html('Secuencia Manual');
+						// }
 						audios.play();
 						estado_audio = true;
 						Secuencia();
@@ -74,19 +88,17 @@ function Leds(){
 					$('#secuencia').html('Secuencia Manual');
 				}
 
-
-
-				if (datos['datos']['secuencia']=="1"){
+				if (datos['datos']['secuencia']=="1"){	
 					if (datos['datos']['mime']!='0-0-0-0'){
 						if (datos['datos']['mime']=='1-1-0-0*1-0-1-0*1-0-0-1*0-1-0-0*0-0-1-0*0-0-0-1'){
 							$('#texto_secuencia').html('Secuencia 1');
-						}else if (datos['datos']['mime']=='1-1-0-0*1-1-1-0*1-0-1-0*1-0-1-1*1-0-0-1*1-1-0-1*0-1-0-0*0-1-1-0*0-0-1-0*0-0-1-1*0-0-0-1*0-1-0-1') {
-							console.log('aqi');
+						}else if (datos['datos']['mime']=='1-1-0-0*1-1-1-0*1-0-1-0*1-0-1-1*1-0-0-1*1-1-0-1*0-1-0-0*0-1-1-0*0-0-1-0*0-0-1-1*0-0-0-1*0-1-0-1') {							
 							$('#texto_secuencia').html('Secuencia 2');
 						}else if (datos['datos']['mime']=='1-1-0-0*1-1-1-1*1-0-0-1*1-1-1-1*1-0-1-0*1-1-1-1*0-1-0-0*0-1-1-1*0-0-0-1*0-1-1-1*0-0-1-0*0-1-1-1') {
 							$('#texto_secuencia').html('Secuencia 3');
 						}							
 					}else{
+						clearInterval(secuencia);
 						$('#texto_secuencia').html('Secuencia Manual');
 					}
 					Secuencia();
