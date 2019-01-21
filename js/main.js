@@ -147,6 +147,7 @@ function Obtener_Leds(){
 					if (datos['datos']['led'+x]==0){
 						if (x==1){
 							$('#led'+x).removeClass('encendido');
+							$('#btn_led1').html('HABILITAR');							
 						}else if (x==2) {
 							$('#led'+x).removeClass('rojo');
 						}else if (x==3) {
@@ -160,6 +161,7 @@ function Obtener_Leds(){
 					}else{						
 						if (x==1){
 							$('#led'+x).addClass('encendido');
+							$('#btn_led1').html('DESHABILITAR');
 						}else if (x==2) {
 							$('#led'+x).addClass('rojo');
 						}else if (x==3) {

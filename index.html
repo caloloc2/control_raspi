@@ -15,27 +15,52 @@
 		<a href="#" onclick="Salir(); return false;">Salir</a>
 	</header>
 
-	
-	<ul class="leds">
-		<p>Control Manual</p>
+	<div class="componentes">
+		<div class="lado">
+			<ul class="leds">
+				<p>Control de Luces</p>
+				
+				<li id="led1">&nbsp;</li>
+				<!-- <li id="led2">&nbsp;</li>
+				<li id="led3">&nbsp;</li>
+				<li id="led4">&nbsp;</li> -->
+				<input type="hidden" id="val_led1" value="0">
+				<!-- <input type="hidden" id="val_led2" value="0">
+				<input type="hidden" id="val_led3" value="0">
+				<input type="hidden" id="val_led4" value="0"> -->
+			</ul>
 		
-		<li id="led1">&nbsp;</li>
-		<li id="led2">&nbsp;</li>
-		<li id="led3">&nbsp;</li>
-		<li id="led4">&nbsp;</li>
-		<input type="hidden" id="val_led1" value="0">
-		<input type="hidden" id="val_led2" value="0">
-		<input type="hidden" id="val_led3" value="0">
-		<input type="hidden" id="val_led4" value="0">
-	</ul>
+			<ul class="botones_secuencia">
+				<li><a href="#" id="btn_led1" class="btn btn-lg btn-outline-secondary" onclick="Acciona_Led('led1'); return false;">HABILITAR</a></li>
+				<!-- <li><a href="#" id="btn_led2" class="btn btn-lg btn-warning" onclick="Acciona_Led('led2'); return false;">ROJO</a></li>
+				<li><a href="#" id="btn_led3" class="btn btn-lg btn-warning" onclick="Acciona_Led('led3'); return false;">VERDE</a></li>
+				<li><a href="#" id="btn_led4" class="btn btn-lg btn-warning" onclick="Acciona_Led('led4'); return false;">AZUL</a></li> -->
+			</ul>
+		</div>
+		<div class="lado">
+			<ul class="leds">
+				<p>Control Manual</p>
+				
+				<!-- <li id="led1">&nbsp;</li> -->
+				<li id="led2">&nbsp;</li>
+				<li id="led3">&nbsp;</li>
+				<li id="led4">&nbsp;</li>
+				<input type="hidden" id="val_led1" value="0">
+				<input type="hidden" id="val_led2" value="0">
+				<input type="hidden" id="val_led3" value="0">
+				<input type="hidden" id="val_led4" value="0">
+			</ul>
+		
+			<ul class="botones_secuencia">
+				<!-- <li><a href="#" id="btn_led1" class="btn btn-lg btn-outline-secondary" onclick="Acciona_Led('led1'); return false;">AUX</a></li> -->
+				<li><a href="#" id="btn_led2" class="btn btn-lg btn-warning" onclick="Acciona_Led('led2'); return false;">ROJO</a></li>
+				<li><a href="#" id="btn_led3" class="btn btn-lg btn-warning" onclick="Acciona_Led('led3'); return false;">VERDE</a></li>
+				<li><a href="#" id="btn_led4" class="btn btn-lg btn-warning" onclick="Acciona_Led('led4'); return false;">AZUL</a></li>
+			</ul>
+		</div>
+	</div>
 
-	<ul class="botones_secuencia">
-		<li><a href="#" id="btn_led1" class="btn btn-lg btn-outline-secondary" onclick="Acciona_Led('led1'); return false;">AUX</a></li>
-		<li><a href="#" id="btn_led2" class="btn btn-lg btn-warning" onclick="Acciona_Led('led2'); return false;">ROJO</a></li>
-		<li><a href="#" id="btn_led3" class="btn btn-lg btn-warning" onclick="Acciona_Led('led3'); return false;">VERDE</a></li>
-		<li><a href="#" id="btn_led4" class="btn btn-lg btn-warning" onclick="Acciona_Led('led4'); return false;">AZUL</a></li>
-	</ul>
-
+	
 
 	<ul class="botones_secuencia">
 		<p>Control Secuencia</p>
