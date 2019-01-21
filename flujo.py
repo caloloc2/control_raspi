@@ -16,7 +16,7 @@ def flujo():
     cur = db.cursor()
     cur.execute("UPDATE control SET nivel_agua="+estado_flujo+" WHERE id_control=1")
     cur.close()
-	db.close ()
+	#db.close ()
 
 try:
 	while True:
