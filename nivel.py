@@ -3,8 +3,8 @@ import time
 import MySQLdb
 
 GPIO.setmode(GPIO.BCM)
-#GPIO.setup(22, GPIO.IN, pull_up_down = GPIO.PUD_UP) ## GPIO 22 como entrada
-GPIO.setup(22, GPIO.IN) ## GPIO 22 como entrada
+GPIO.setup(22, GPIO.IN, pull_up_down = GPIO.PUD_UP) ## GPIO 22 como entrada
+#GPIO.setup(22, GPIO.IN) ## GPIO 22 como entrada
 
 global count
 count = 0
@@ -19,7 +19,7 @@ def contador_pulso():
     global count
     count = 0
     for x in range(0, 60):
-        if GPIO.input(22) == 1:
+        if GPIO.input(22) == 0:
             count = count + 1
             #time.sleep(0.001)
     print(count)
