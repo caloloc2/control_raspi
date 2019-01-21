@@ -21,8 +21,9 @@ def contador_pulso():
         if GPIO.input(22) == 1:
             count = count + 1            
             time.sleep(0.01)
+    print(count)
     flow = (count * 60 * 2.25 / 1000)
-    print "The flow is: %.3f L/m" % (flow)
+    print "Flujo: %.3f L/m" % (flow)
     guardar_dato(flow)
 
 #GPIO.add_event_detect(22, GPIO.FALLING, callback=contador_pulso) 
