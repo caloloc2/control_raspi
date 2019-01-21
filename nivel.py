@@ -17,9 +17,10 @@ def guardar_dato(nivel):
 
 def contador_pulso():
     global count
+    count = 0
     for x in range(0, 60):
         if GPIO.input(22) == 1:
-            count = count + 1            
+            count = count + 1
             time.sleep(0.0001)
     print(count)
     flow = (count * 60 * 2.25 / 1000)
@@ -30,9 +31,8 @@ def contador_pulso():
 
 try:
     while True:
-        time.sleep(1)
-        contador_pulso()
-        count = 0
+        time.sleep(1)        
+        contador_pulso()        
         time.sleep(1)
 
 except KeyboardInterrupt:
