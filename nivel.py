@@ -27,11 +27,12 @@ def guardar_dato(nivel):
 #GPIO.add_event_detect(22, GPIO.FALLING, callback=contador_pulso) 
 
 try:
-	while True:
+    while True:
         time.sleep(1)
         contador_pulso()
         count = 0
         time.sleep(1)
+
 except KeyboardInterrupt:
 	print "Script finalizado."	
 	GPIO.cleanup()
