@@ -21,7 +21,7 @@ def contador_pulso():
     for x in range(0, 60):
         if GPIO.input(22) == 1:
             count = count + 1
-            time.sleep(0.0001)
+            #time.sleep(0.001)
     print(count)
     flow = (count * 60 * 2.25 / 1000)
     print "Flujo: %.3f L/m" % (flow)
