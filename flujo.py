@@ -7,6 +7,7 @@ GPIO.setup(20, GPIO.IN) ## GPIO 20 como salida
 
 def flujo():
     estado_flujo = 0
+    print(GPIO.input(20))
     if GPIO.input(20) == GPIO.HIGH:
         estado_flujo = 1
     else:
