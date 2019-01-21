@@ -12,9 +12,10 @@ def flujo():
     
     db = MySQLdb.connect(host="34.223.215.43", user="root", passwd="385402292Mica_02", db="control_raspi")
     cur = db.cursor()
-    cur.execute("UPDATE control SET nivel_agua="+str(estado_flujo)+" WHERE id_control=1")
+    cur.execute("UPDATE control SET nivel_agua="+str(estado_flujo))
     cur.close()
 	#db.close ()
+    print "UPDATE control SET nivel_agua="+str(estado_flujo)
 
 try:
 	while True:
