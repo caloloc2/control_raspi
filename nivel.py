@@ -11,11 +11,12 @@ count = 0
 
 def contador_pulso():
     global count
-    if GPIO.input(22) == 1:
-        count = count + 1
-        print count
-        flow = (count * 60 * 2.25 / 1000)
-        print "The flow is: %.3f L/m" % (flow)
+    for x in range(0, 60):
+        if GPIO.input(22) == 1:
+            count = count + 1            
+            time.sleep(100)
+    flow = (count * 60 * 2.25 / 1000)
+    print "The flow is: %.3f L/m" % (flow)    
 
 def guardar_dato(nivel):
     db = MySQLdb.connect(host="34.223.215.43", user="root", passwd="385402292Mica_02", db="control_raspi")
@@ -30,7 +31,7 @@ try:
         time.sleep(1)
         contador_pulso()
         count = 0
-        time.sleep(5)
+        time.sleep(1)
 except KeyboardInterrupt:
 	print "Script finalizado."	
 	GPIO.cleanup()
