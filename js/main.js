@@ -100,6 +100,34 @@ function Verifica_Inicio(){
 				window.location.href = 'login.html';
 			}else{
 				Obtener_Leds();
+				setInterval(function(){
+					Obtener_Flujos();
+				}, 1000)
+			}
+		},
+		error:function(e){
+			console.log(e.responseText);
+		}
+	});	
+}
+
+function Obtener_Flujos(){	
+	$.ajax({
+		url: 'php/obtener_datos.php',
+		dataType: 'json',
+		async: false,
+		success: function(datos) {	
+			//console.log(datos);
+			if (datos['estado']){
+				if (datos['datos']['nivel_agua']=='0'){
+					document.getElementById('nivel_agua').value = "NIVEL BAJO";
+					$('#led_nivel_agua').removeClass('activado');
+				}else{
+					document.getElementById('nivel_agua').value = "NIVEL ALTO";
+					$('#led_nivel_agua').addClass('activado');
+				}
+
+				document.getElementById('nivel_flujo').value = datos['datos']['nivel_flujo']+" L/m";
 			}
 		},
 		error:function(e){

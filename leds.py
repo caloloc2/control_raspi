@@ -3,10 +3,10 @@ import time
 import MySQLdb
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(26, GPIO.OUT) ## GPIO 17 como salida
-GPIO.setup(19, GPIO.OUT) ## GPIO 27 como salida
-GPIO.setup(13, GPIO.OUT) ## GPIO 27 como salida
-GPIO.setup(6, GPIO.OUT) ## GPIO 27 como salida
+GPIO.setup(26, GPIO.OUT) ## GPIO 26 como salida
+GPIO.setup(19, GPIO.OUT) ## GPIO 19 como salida
+GPIO.setup(13, GPIO.OUT) ## GPIO 13 como salida
+GPIO.setup(6, GPIO.OUT) ## GPIO 6 como salida
 
 def lectura():
 	db = MySQLdb.connect(host="34.223.215.43", user="root", passwd="385402292Mica_02", db="control_raspi")
