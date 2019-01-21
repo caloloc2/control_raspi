@@ -7,7 +7,7 @@ GPIO.setup(20, GPIO.IN) ## GPIO 20 como salida
 
 def flujo():
     estado_flujo = 0
-    print(GPIO.input(20))
+    #print(GPIO.input(20))
     estado_flujo = GPIO.input(20)
     
     db = MySQLdb.connect(host="34.223.215.43", user="root", passwd="385402292Mica_02", db="control_raspi")
