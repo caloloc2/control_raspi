@@ -14,7 +14,7 @@ def lectura():
 	cur.execute("SELECT * FROM control LIMIT 1")
 	for row in cur.fetchall() :
 		estados = (str(row[8])).split('*')		
-		audio_activo = row[9]
+		audio_activo = row[10]
 
 		if (audio_activo==1):
 			for linea in estados:
