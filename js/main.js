@@ -231,7 +231,9 @@ function Acciona_Led(led){
 }
 
 var rsec = 0;
+var seleccion_de_secuencia = 0;
 function Reproducir_Secuencia(numero){
+	seleccion_de_secuencia = numero;
 	rsec = Math.abs((rsec -1)) ;
 	if (rsec==0){
 		numero = 0;
@@ -316,7 +318,7 @@ function Audio(valor){
 		dataType: 'json',
 		data: {
 			audio : valor,
-			secuencia: document.getElementById('seleccion_secuencia').value
+			secuencia: seleccion_de_secuencia //document.getElementById('seleccion_secuencia').value
 		},
 		type: "POST",
 		async: false,
