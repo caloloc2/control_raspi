@@ -128,6 +128,11 @@ function Obtener_Flujos(){
 				}
 
 				document.getElementById('nivel_flujo').value = datos['datos']['nivel_flujo']+" L/m";
+				if (datos['datos']['nivel_flujo']>0){
+					$('#led_nivel_flujo').addClass('activado');
+				}else{					
+					$('#led_nivel_flujo').removeClass('activado');
+				}
 			}
 		},
 		error:function(e){

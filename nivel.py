@@ -3,8 +3,8 @@ import time
 import MySQLdb
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(22, GPIO.IN, pull_up_down = GPIO.PUD_UP) ## GPIO 22 como entrada
-#GPIO.setup(22, GPIO.IN) ## GPIO 22 como entrada
+#GPIO.setup(22, GPIO.IN, pull_up_down = GPIO.PUD_UP) ## GPIO 22 como entrada
+GPIO.setup(22, GPIO.IN) ## GPIO 22 como entrada
 
 global count
 count = 0
