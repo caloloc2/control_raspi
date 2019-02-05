@@ -11,7 +11,7 @@
 	
 	<header>
 		<figure><img src="img/logo.jpg" alt=""></figure>
-		<h1>Control Raspi</h1>
+		<h1>Control de Cascada Santuario de Jes&uacute;s</h1>
 		<a href="#" onclick="Salir(); return false;">Salir</a>
 	</header>
 
@@ -53,6 +53,8 @@
 		
 			<ul class="botones_secuencia">
 				<!-- <li><a href="#" id="btn_led1" class="btn btn-lg btn-outline-secondary" onclick="Acciona_Led('led1'); return false;">AUX</a></li> -->
+				<li><a href="#" id="btn_led01" class="btn btn-lg btn-warning" onclick="return false;">LUZ</a></li>
+				<li><a href="#" id="btn_led00" class="btn btn-lg btn-warning" onclick="return false;">BOMBA AGUA</a></li>
 				<li><a href="#" id="btn_led2" class="btn btn-lg btn-warning" onclick="Acciona_Led('led2'); return false;">ROJO</a></li>
 				<li><a href="#" id="btn_led3" class="btn btn-lg btn-warning" onclick="Acciona_Led('led3'); return false;">VERDE</a></li>
 				<li><a href="#" id="btn_led4" class="btn btn-lg btn-warning" onclick="Acciona_Led('led4'); return false;">AZUL</a></li>
@@ -71,13 +73,13 @@
 
 	<div class="division">
 		<div class="columna">
-				<form class="form-inline" id="texto">	  	  
+				<form class="form-inline" id="texto" style="display: none;">	  	  
 					<input type="text" class="form-control mb-2 mr-sm-2" id="texto_envio" placeholder="Texto a enviar" required="true">
 					<button type="submit" class="btn btn-primary mb-2">Enviar</button>
 					<span class="mensaje">&nbsp;</span>
 				</form>
 			
-				<form class="form-inline" id="imagen" accept-charset="multipart/form-data" method="post">	  
+				<form class="form-inline" id="imagen" accept-charset="multipart/form-data" method="post" style="display: none;">	  
 					<label for="">Archivo de Imagen</label>
 					<input type="file" class="form-control mb-2 mr-sm-2" id="imagen_envio" name="imagen_envio" placeholder="Escoger imagen" accept="image/jpeg" required="true">
 					<button type="submit" class="btn btn-primary mb-2">Subir</button>
