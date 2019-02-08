@@ -68,6 +68,12 @@ try{
 	}elseif (isset($_FILES['imagen_envio']['name'])) {		
 		Imagen($_FILES, 500, 500);
 		$actualiza = Meta::Actualizar_Campo('control', 'imagen', $_FILES['imagen_envio']['name'], 'id_control', 1);
+	}elseif (isset($_POST['luz'])) {
+		$valor_luz = Meta::Consulta_Unico("SELECT luz FROM control LIMIT 1");
+		if ($valor_luz['luz']!=''){
+			$aux = abs(intval($valor_luz['luz']) -1);
+			$actualiza = Meta::Actualizar_Campo('control', 'luz', $aux, 'id_control', 1);
+		}
 	}
 
 	$respuesta['estado'] = true;

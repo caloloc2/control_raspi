@@ -8,6 +8,8 @@ GPIO.setup(19, GPIO.OUT) ## GPIO 19 como salida
 GPIO.setup(13, GPIO.OUT) ## GPIO 13 como salida
 GPIO.setup(6, GPIO.OUT) ## GPIO 6 como salida
 
+GPIO.setup(12, GPIO.OUT) ## GPIO 12 como salida
+
 def lectura():
 	db = MySQLdb.connect(host="34.223.215.43", user="root", passwd="385402292Mica_02", db="control_raspi")
 	cur = db.cursor()
@@ -15,6 +17,11 @@ def lectura():
 	for row in cur.fetchall() :
 		estados = (str(row[8])).split('*')		
 		audio_activo = row[10]
+				
+		if (row[13]=='1'):
+			GPIO.output(12, True)
+		elif (row[13]=='0'):
+			GPIO.output(12, False)			
 
 		if (audio_activo==1):
 			for linea in estados:

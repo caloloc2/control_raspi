@@ -146,8 +146,17 @@ function Obtener_Leds(){
 		url: 'php/obtener_datos.php',
 		dataType: 'json',
 		async: false,
-		success: function(datos) {			
+		success: function(datos) {
+			console.log(datos);
 			if (datos['estado']){
+				if (datos['datos']['luz']=="0"){
+					$('#luz').removeClass('btn-warning');
+					$('#luz').addClass('btn-outline-secondary');					
+				}else{
+					$('#luz').removeClass('btn-outline-secondary');
+					$('#luz').addClass('btn-warning');					
+				}
+
 				for (x=1; x<=4; x++){
 					if (datos['datos']['led'+x]==0){
 						if (x==1){
@@ -218,6 +227,24 @@ function Acciona_Led(led){
 		data: {
 			led : led,
 			valor: valor
+		},
+		type: "POST",
+		async: false,
+		success: function(datos) {
+			Obtener_Leds();
+		},
+		error:function(e){
+			console.log(e.responseText);
+		}
+	});	
+}
+
+function Acciona_Luz(){
+	$.ajax({
+		url: 'php/actualiza.php',
+		dataType: 'json',
+		data: {
+			luz: '1'
 		},
 		type: "POST",
 		async: false,
